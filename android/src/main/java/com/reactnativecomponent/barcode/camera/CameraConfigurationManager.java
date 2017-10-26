@@ -77,11 +77,11 @@ private static final int DESIRED_SHARPNESS = 30;
    * LuminanceSource subclass. In the future we may want to force YUV420SP as it's the smallest,
    * and the planar Y can be used for barcode scanning without a copy in some cases.
    */
-  void setDesiredCameraParameters(Camera camera) {
+  void setDesiredCameraParameters(Camera camera, int torchMode) {
     Camera.Parameters parameters = camera.getParameters();
 //    Log.d(TAG, "Setting preview size: " + cameraResolution);
     parameters.setPreviewSize(cameraResolution.x, cameraResolution.y);
-    //setFlash(parameters);
+    setFlash(parameters, torchMode);
     setZoom(parameters);
     //setSharpness(parameters);
 //    parameters.set("orientation", "portrait");
@@ -203,20 +203,32 @@ private static final int DESIRED_SHARPNESS = 30;
     return tenBestValue;
   }
 
-  private void setFlash(Camera.Parameters parameters) {
+  private void setFlash(Camera.Parameters parameters, int torchMode) {
     // FIXME: This is a hack to turn the flash off on the Samsung Galaxy.
     // And this is a hack-hack to work around a different value on the Behold II
     // Restrict Behold II check to Cupcake, per Samsung's advice
     //if (Build.MODEL.contains("Behold II") &&
     //    CameraManager.SDK_INT == Build.VERSION_CODES.CUPCAKE) {
+    /*
     if (Build.MODEL.contains("Behold II") && CameraManager.SDK_INT == 3) { // 3 = Cupcake
       parameters.set("flash-value", 1);
     } else {
       parameters.set("flash-value", 2);
     }
+    */
     // This is the standard setting to turn the flash off that all devices should honor.
     //parameters.set("flash-mode", "off");
-    parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+    if (torchMode > 0) {
+      parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+    }else{
+      if (Build.MODEL.contains("Behold II") && CameraManager.SDK_INT == 3) { // 3 = Cupcake
+        parameters.set("flash-value", 1);
+      } else {
+        parameters.set("flash-value", 2);
+      }
+      parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+    }
+    
   }
 
   private void setZoom(Camera.Parameters parameters) {

@@ -51,6 +51,7 @@ public final class CameraManager {
   public static  int MAX_FRAME_HEIGHT;
   public static int x;
   public static int y;
+  public static int torchMode = 0;
 
   private static CameraManager cameraManager;
   private int focusTime=500;
@@ -148,7 +149,7 @@ private final Context context;
         initialized = true;
         configManager.initFromCameraParameters(camera);
       }
-      configManager.setDesiredCameraParameters(camera);
+      configManager.setDesiredCameraParameters(camera, this.torchMode);
 
 //      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 //      if (prefs.getBoolean(PreferencesActivity.KEY_FRONT_LIGHT, false)) {
