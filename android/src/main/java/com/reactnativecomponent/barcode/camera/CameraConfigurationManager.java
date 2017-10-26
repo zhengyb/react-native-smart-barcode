@@ -81,7 +81,7 @@ private static final int DESIRED_SHARPNESS = 30;
     Camera.Parameters parameters = camera.getParameters();
 //    Log.d(TAG, "Setting preview size: " + cameraResolution);
     parameters.setPreviewSize(cameraResolution.x, cameraResolution.y);
-    setFlash(parameters);
+    //setFlash(parameters);
     setZoom(parameters);
     //setSharpness(parameters);
 //    parameters.set("orientation", "portrait");
