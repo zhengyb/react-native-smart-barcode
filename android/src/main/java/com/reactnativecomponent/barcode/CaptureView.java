@@ -683,15 +683,15 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
      * 开启闪光灯常亮
      */
     public void OpenFlash(){
-        //try {
+        try {
             Camera.Parameters param =CameraManager.get().getCamera().getParameters();
 
             param.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
 
             CameraManager.get().getCamera().setParameters(param);
-        //} catch (Exception e) {
-         //   e.printStackTrace();
-        //}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }  
 
     /**
