@@ -690,7 +690,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
             CameraManager.get().getCamera().setParameters(param);
         //} catch (Exception e) {
-            e.printStackTrace();
+         //   e.printStackTrace();
         //}
     }  
 
