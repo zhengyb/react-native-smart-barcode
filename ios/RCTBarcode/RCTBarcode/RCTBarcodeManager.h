@@ -4,6 +4,12 @@
 
 @class RCTBarcode;
 
+typedef NS_ENUM(NSInteger, RCTCameraTorchMode) {
+  RCTCameraTorchModeOff = AVCaptureTorchModeOff,
+  RCTCameraTorchModeOn = AVCaptureTorchModeOn,
+  RCTCameraTorchModeAuto = AVCaptureTorchModeAuto
+};
+
 @interface RCTBarcodeManager : RCTViewManager<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, strong) dispatch_queue_t sessionQueue;
