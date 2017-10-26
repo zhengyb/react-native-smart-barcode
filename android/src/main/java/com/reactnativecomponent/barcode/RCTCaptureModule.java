@@ -97,7 +97,7 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
             getCurrentActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     captureManager.cap.startQR();
-                    captureManager.cap.OpenFlash();
+                    //captureManager.cap.OpenFlash();
 //                    captureManager.cap.startScan();
 //                    Toast.makeText(getCurrentActivity(), "startScan", Toast.LENGTH_SHORT).show();
                 }
@@ -113,7 +113,7 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
                 public void run() {
 //                    captureManager.cap.stopQR();
                     captureManager.cap.stopScan();
-                    captureManager.cap.CloseFlash();
+                    //captureManager.cap.CloseFlash();
 //                    Toast.makeText(getCurrentActivity(), "stopScan", Toast.LENGTH_SHORT).show();
                 }
             });
