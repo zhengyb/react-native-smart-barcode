@@ -31,7 +31,7 @@ export default class Barcode extends Component {
         scannerRectLeft: 0,
         scannerLineInterval: 3000,
         scannerRectCornerColor: `#09BB0D`,
-        torchMode: BarcodeManager.TorchMode.off,
+        torchMode: 1,
     }
 
     static propTypes = {
@@ -68,6 +68,14 @@ export default class Barcode extends Component {
 
     stopScan() {
         BarcodeManager.stopSession()
+    }
+
+    openTorch() {
+        BarcodeManager.startFlash()
+    }
+
+    closeTorch() {
+        BarcodeManager.stopFlash()
     }
 
     _handleAppStateChange = (currentAppState) => {

@@ -65,7 +65,7 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         view.setDecodeFormats(result);
 
     }
-    @ReactProp(name = "torchMode")
+    @ReactProp(name = "torchMode", , defaultInt = 1)
     public void setTorchMode(CaptureView view, int torchMode) {
         view.setTorchMode(torchMode);
     }
