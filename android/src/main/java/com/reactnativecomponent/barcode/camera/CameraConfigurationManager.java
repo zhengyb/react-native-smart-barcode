@@ -215,7 +215,8 @@ private static final int DESIRED_SHARPNESS = 30;
       parameters.set("flash-value", 2);
     }
     // This is the standard setting to turn the flash off that all devices should honor.
-    parameters.set("flash-mode", "off");
+    //parameters.set("flash-mode", "off");
+    parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
   }
 
   private void setZoom(Camera.Parameters parameters) {
