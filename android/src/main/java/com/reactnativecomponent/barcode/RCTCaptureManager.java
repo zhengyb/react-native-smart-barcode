@@ -65,6 +65,11 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         view.setDecodeFormats(result);
 
     }
+    @ReactProp(name = "torchMode")
+    public void setTorchMode(CaptureView view, int torchMode) {
+        view.setTorchMode(torchMode);
+    }
+
     @ReactProp(name = "scannerRectLeft", defaultInt = 0)
     public void setCX(CaptureView view, int cX) {
         view.setcX((int) (cX* density + 0.5f));

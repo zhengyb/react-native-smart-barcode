@@ -16,6 +16,10 @@ import java.util.Map;
 
 
 public class RCTCaptureModule extends ReactContextBaseJavaModule {
+    public static final int RCT_CAMERA_TORCH_MODE_OFF = 0;
+    public static final int RCT_CAMERA_TORCH_MODE_ON = 1;
+    public static final int RCT_CAMERA_TORCH_MODE_AUTO = 2;
+
     private ReactApplicationContext mContext;
     RCTCaptureManager captureManager;
 
@@ -47,6 +51,7 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
         return Collections.unmodifiableMap(new HashMap<String, Object>() {
             {
                 put("barCodeTypes", getBarCodeTypes());
+                put("torchMode", getTorchMode());
             }
             private Map<String, Object> getBarCodeTypes() {
                 return Collections.unmodifiableMap(new HashMap<String, Object>() {
@@ -69,6 +74,17 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
 
                 });
             }
+
+            private Map<String, Object> getTorchMode() {
+                return Collections.unmodifiableMap(new HashMap<String, Object>() {
+                    {
+                        put("off", RCT_CAMERA_TORCH_MODE_OFF);
+                        put("on", RCT_CAMERA_TORCH_MODE_ON);
+                        put("auto", RCT_CAMERA_TORCH_MODE_AUTO);
+                    }
+                });
+            }
+
         });
     }
 

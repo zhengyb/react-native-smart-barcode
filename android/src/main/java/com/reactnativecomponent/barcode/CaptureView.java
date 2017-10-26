@@ -98,8 +98,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     SurfaceTexture surfaceTexture;
     boolean autoStart = true;//是否自动启动扫描
     String ResultStr="";
-
-
+    private int _torchMode = 0;
 
 
    /* private final VerticalSeekBar.OnSeekBarChangeListener onSeekBarChangeListener = new VerticalSeekBar.OnSeekBarChangeListener() {
@@ -693,7 +692,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }  /**
+    }  
+
+    /**
      * 关闭闪光灯常亮
      */
     public void CloseFlash(){
@@ -706,6 +707,15 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
             CameraManager.get().getCamera().setParameters(param);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setTorchMode(int torchMode) {
+        this._torchMode = torchMode;
+        if (torchMode == 1) {
+            this.OpenFlash();
+        }else{
+            this.CloseFlash();
         }
     }
 
