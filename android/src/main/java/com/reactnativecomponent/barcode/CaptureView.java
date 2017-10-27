@@ -713,13 +713,6 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     public void setTorchMode(int torchMode) {
         this._torchMode = torchMode;
         CameraManager.get().torchMode = torchMode;
-        /*
-        if (torchMode == 1) {
-            this.OpenFlash();
-        }else{
-            this.CloseFlash();
-        }
-        */
     }
 
     /**
