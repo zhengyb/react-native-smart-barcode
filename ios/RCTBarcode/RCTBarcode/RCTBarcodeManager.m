@@ -31,22 +31,6 @@ RCT_CUSTOM_VIEW_PROPERTY(barCodeTypes, NSArray, RCTBarcode) {
     self.barCodeTypes = [RCTConvert NSArray:json];
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(torchMode, NSInteger, RCTBarcode) {
-  dispatch_async(self.sessionQueue, ^{
-    NSInteger *torchMode = [RCTConvert NSInteger:json];
-    AVCaptureDevice *device = [self.videoCaptureDeviceInput device];
-    NSError *error = nil;
-
-    if (![device hasTorch]) return;
-    if (![device lockForConfiguration:&error]) {
-      NSLog(@"%@", error);
-      return;
-    }
-    [device setTorchMode: torchMode];
-    [device unlockForConfiguration];
-  });
-}
-
 - (UIView *)view
 {
     self.session = [[AVCaptureSession alloc]init];
@@ -308,11 +292,6 @@ RCT_EXPORT_METHOD(stopSession) {
                      #ifdef AVMetadataObjectTypeDataMatrixCode
                      ,@"datamatrix": AVMetadataObjectTypeDataMatrixCode
                      # endif
-                },
-                @"TorchMode": @{
-                    @"off": @(RCTCameraTorchModeOff),
-                    @"on": @(RCTCameraTorchModeOn),
-                    @"auto": @(RCTCameraTorchModeAuto)
                 }
             };
 }
