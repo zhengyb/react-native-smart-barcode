@@ -31,7 +31,8 @@ export default class Barcode extends Component {
         scannerRectLeft: 0,
         scannerLineInterval: 3000,
         scannerRectCornerColor: `#09BB0D`,
-        torchMode: 1,
+        torchMode: 0,
+        text: `Align the QR Code within the frame to scan`,
     }
 
     static propTypes = {
@@ -45,6 +46,7 @@ export default class Barcode extends Component {
         scannerLineInterval: PropTypes.number,
         scannerRectCornerColor: PropTypes.string,
         torchMode: PropTypes.number,
+        text: PropTypes.string,
     }
 
     render() {

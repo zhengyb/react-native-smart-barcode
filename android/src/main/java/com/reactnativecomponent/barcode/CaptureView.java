@@ -228,7 +228,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         this.addView(textureView);
         viewfinderView = new ViewfinderView(activity, scanTime, CORNER_COLOR);
         viewfinderView.CORNER_WIDTH = CORNER_WIDTH;
-        viewfinderView.ShowText = Text;
+        viewfinderView.ShowText = this.Text;
         viewfinderView.setLayoutParams(param);
         viewfinderView.getLayoutParams().height = ScreenHeight;
         viewfinderView.getLayoutParams().width = ScreenWidth;
@@ -635,7 +635,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     }
 
     public void setText(String text) {
-        Text = text;
+        this.Text = text;
     }
 
     /**
