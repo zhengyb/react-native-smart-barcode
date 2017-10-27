@@ -90,10 +90,10 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         view.setMAX_FRAME_HEIGHT((int) (FRAME_HEIGHT * density + 0.5f));
     }
 
-/*    @ReactProp(name = "text")
+    @ReactProp(name = "text")
     public void setText(CaptureView view, String text) {
         view.setText(text);
-    }*/
+    }
 
 
   /*  @ReactProp(name = "scannerRectCornerWidth", defaultInt = 4)
