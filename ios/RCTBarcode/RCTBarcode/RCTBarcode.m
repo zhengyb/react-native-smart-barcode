@@ -19,7 +19,6 @@
     
     if ((self = [super init])) {
         self.manager = manager;
-        self.scannerText = manager.scannerText;
         [self.manager initializeCaptureSessionInput:AVMediaTypeVideo];
         [self.manager startSession];
     }
