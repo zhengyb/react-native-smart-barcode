@@ -19,6 +19,7 @@
     
     if ((self = [super init])) {
         self.manager = manager;
+        self.scannerText = manager.scannerText;
         [self.manager initializeCaptureSessionInput:AVMediaTypeVideo];
         [self.manager startSession];
     }
@@ -68,7 +69,7 @@
     //中间的矩形框
     self.scannerRect = CGRectMake( (cameraRect.size.width - scannerRectWidth) / 2, (cameraRect.size.height - scannerRectHeight) / 2, scannerRectWidth, scannerRectHeight);
 
-    RectView *view = [[RectView alloc] initWithScannerRect:self.scannerRect frame:self.bounds scannerRectCornerColor:self.scannerRectCornerColor];
+    RectView *view = [[RectView alloc] initWithScannerRect:self.scannerRect frame:self.bounds scannerRectCornerColor:self.scannerRectCornerColor scannerText:self.manager.text];
 //    RectView *view = [[RectView alloc] initWithFrame:self.bounds];
     
     view.backgroundColor = [UIColor clearColor];

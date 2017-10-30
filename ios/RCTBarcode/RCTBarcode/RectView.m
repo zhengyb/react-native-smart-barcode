@@ -5,12 +5,13 @@
 @implementation RectView
 
 
-- (id)initWithScannerRect:(CGRect)scannerRect frame:(CGRect)frame scannerRectCornerColor:(NSString*)scannerRectCornerColor
+- (id)initWithScannerRect:(CGRect)scannerRect frame:(CGRect)frame scannerRectCornerColor:(NSString*)scannerRectCornerColor scannerText:(NSString*)scannerText
 {
     
     if ((self = [super initWithFrame:frame])) {
         self.scannerRect = scannerRect;
         self.scannerRectCornerColor = scannerRectCornerColor;
+        self.scannerText = scannerText;
     }
     return self;
     
@@ -29,7 +30,7 @@
 #pragma mark 添加提示Lable
 - (void)addNoticeInfoLable:(CGRect)rect{
     _noticeInfoLable = [[UILabel alloc]initWithFrame:CGRectMake(0, (rect.origin.y + rect.size.height+10), self.bounds.size.width, 20)];
-    [_noticeInfoLable setText:@"将二维码/条形码放入取景框中即可自动扫描"];
+    [_noticeInfoLable setText: self.scannerText];
     _noticeInfoLable.font = [UIFont systemFontOfSize:15];
     [_noticeInfoLable setTextColor:[UIColor whiteColor]];
     _noticeInfoLable.textAlignment = NSTextAlignmentCenter;
