@@ -23,18 +23,8 @@
     [self addCenterClearRect:ctx rect:self.scannerRect];
     [self addWhiteRect:ctx rect:self.scannerRect];
     [self addCornerLineWithContext:ctx rect:self.scannerRect];
-    [self addNoticeInfoLable:self.scannerRect];
 }
 
-#pragma mark 添加提示Lable
-- (void)addNoticeInfoLable:(CGRect)rect{
-    _noticeInfoLable = [[UILabel alloc]initWithFrame:CGRectMake(0, (rect.origin.y + rect.size.height+10), self.bounds.size.width, 20)];
-    [_noticeInfoLable setText:@"将二维码/条形码放入取景框中即可自动扫描"];
-    _noticeInfoLable.font = [UIFont systemFontOfSize:15];
-    [_noticeInfoLable setTextColor:[UIColor whiteColor]];
-    _noticeInfoLable.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_noticeInfoLable];
-}
 
 #pragma mark 画背景
 - (void)addScreenFillRect:(CGContextRef)ctx rect:(CGRect)rect {
